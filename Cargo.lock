@@ -52,7 +52,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "PlaygroundMR0"
+name = "PlaygroundMR0_"
 version = "0"
 dependencies = [
  "num-complex",
