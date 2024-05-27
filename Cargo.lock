@@ -52,8 +52,8 @@ dependencies = [
 ]
 
 [[package]]
-name = "mrzero_core"
-version = "0.2.12"
+name = "PlaygroundMR0"
+version = "0"
 dependencies = [
  "num-complex",
  "pyo3",
