@@ -3,8 +3,8 @@ requires = ["maturin>=0.14,<0.15"]
 build-backend = "maturin"
 
 [project]
-name = "MRzeroCore"
-description = "Core functionality of MRzero"
+name = "PlaygroundMR0_"
+description = "PlaygroundMR0"
 authors = [
     {name = "PlaygroundMR0", email = "playgroundmr0@gmail.com"},
 ]
