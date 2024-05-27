@@ -6,7 +6,7 @@ build-backend = "maturin"
 name = "MRzeroCore"
 description = "Core functionality of MRzero"
 authors = [
-    {name = "Jonathan Endres", email = "jonathan.endres@uk-erlangen.de"},
+    {name = "PlaygroundMR0", email = "playgroundmr0@gmail.com"},
 ]
 readme = "README.md"
 classifiers = [
@@ -28,7 +28,7 @@ dependencies = [
 ]
 
 [project.urls]
-Repository = "https://github.com/MRsources/MRzero-Core"
+Repository = "https://github.com/playground-mr0/MRzeroCore"
 Documentation = "https://mrzero-core.readthedocs.io/"
 MRzero-Paper = "https://arxiv.org/abs/2002.04265"
 
