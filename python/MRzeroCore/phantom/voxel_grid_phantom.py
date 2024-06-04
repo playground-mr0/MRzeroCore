@@ -373,7 +373,7 @@ class VoxelGridPhantom:
     def plot(self) -> None:
         """Print and plot all data stored in this phantom."""
         print("VoxelGridPhantom")
-        print(f"size = {self.size}")
+        print(f"size playgroundmr0 = {self.size}")
         # Center slice
         s = self.PD.shape[2] // 2
         # Warn if we only print a part of all data
