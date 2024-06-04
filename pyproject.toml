@@ -3,7 +3,7 @@ requires = ["maturin>=0.14,<0.15"]
 build-backend = "maturin"
 
 [project]
-name = "PlaygroundMR0_"
+name = "PlaygroundMR01"
 description = "PlaygroundMR0"
 authors = [
     {name = "PlaygroundMR0", email = "playgroundmr0@gmail.com"},
