@@ -422,7 +422,7 @@ class VoxelGridPhantom:
     def plot3D(self, data2print: int = 0) -> None:
         """Print and plot all slices of one selected data stored in this phantom."""
         print("VoxelGridPhantom")
-        print(f"size = {self.size}")
+        print(f"size Second Publishing = {self.size}")
         print()
 
         label = ['PD', 'T1', 'T2', "T2'", "D", "B0", "B1", "coil sens"]
