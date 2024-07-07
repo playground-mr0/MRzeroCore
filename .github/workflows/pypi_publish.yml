@@ -26,8 +26,9 @@ jobs:
         target: [x86_64, x86, aarch64, armv7, s390x, ppc64le]
     steps:
       - uses: actions/checkout@v3
+      - name: Grant execute permissions to script
+        run: chmod +x Update_Cargo_version.sh
       - name: Update Cargo.toml Version
-        run: ls -l Update_Cargo_version.sh
         run: ./Update_Cargo_version.sh
       - uses: actions/setup-python@v4
         with:
