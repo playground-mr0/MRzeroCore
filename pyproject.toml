@@ -1,10 +1,6 @@
 [build-system]
-requires = ["maturin>=0.14,<0.15","setuptools>=42", "setuptools_scm[toml]>=6.0.1"]
+requires = ["maturin>=0.14,<0.15"]
 build-backend = "maturin"
-
-[tool.setuptools_scm]
-version_scheme = "post-release"
-local_scheme = "node-and-date"
 
 [project]
 name = "PlaygroundMR01"
