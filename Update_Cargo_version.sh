@@ -1,12 +1,18 @@
 #!/bin/bash
-ls -l Update_Cargo_version.sh
-chmod +x Update_Cargo_version.sh
 
-# Get current version with commit hash and date
+# Check if cargo-edit is installed
+if ! command -v cargo-edit &> /dev/null; then
+    echo "cargo-edit not found. Installing..."
+    cargo install cargo-edit
+fi
+
+# Get current version including commit hash and dirty flag
 VERSION=$(git describe --tags --dirty --always --long --abbrev=7)
 
 # Update Cargo.toml with the new version
-sed -i "s/^version = \".*\"$/version = \"$VERSION\"/" Cargo.toml
+cargo edit --set-version "$VERSION"
 
-# Update Cargo.lock with the new version (optional)
-cargo update -p PlaygroundMR01 --precise "$VERSION"  # Replace 'your-package-name' with your actual package name
+# Optionally, update Cargo.lock (if needed)
+cargo update -p PlaygroundMR01 --precise "$VERSION"
+
+# Any other commands related to your build process
