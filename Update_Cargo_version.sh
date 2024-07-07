@@ -1,5 +1,5 @@
 #!/bin/bash
-
+ls -l Update_Cargo_version.sh
 chmod +x Update_Cargo_version.sh
 
 # Get current version with commit hash and date
