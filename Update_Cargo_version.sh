@@ -12,8 +12,14 @@ fi
 # Ensure the PATH includes Cargo bin directory
 export PATH="$HOME/.cargo/bin:$PATH"
 
-# Get current version including commit hash and dirty flag
-VERSION=$(git describe --tags --dirty --always --long --abbrev=7)
+# Get the current version from Cargo.toml
+CURRENT_VERSION=$(grep '^version =' Cargo.toml | sed 's/version = "//;s/"//')
+
+# Get the short commit hash
+SHORT_HASH=$(git rev-parse --short HEAD)
+
+# Combine to create a semver-compliant pre-release version string
+VERSION="${CURRENT_VERSION}-${SHORT_HASH}"
 
 # Print the version
 echo "Current version: $VERSION"
