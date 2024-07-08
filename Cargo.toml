@@ -1,6 +1,6 @@
 [package]
 name = "PlaygroundMR01"
-version = "0.1.2-alpha.ffb95cf"
+version = "0.1.1"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
@@ -10,3 +10,13 @@ crate-type = ["cdylib"]
 [dependencies]
 pyo3 = { version = "0.17.3", features = ["abi3-py37", "extension-module", "num-complex"] }
 num-complex = "0.4.2"
+
+[package.metadata.maturin]
+name = "PlaygroundMR01"
+version = "0.1.1"
+
+[package.metadata.maturin.scripts]
+prebuild = '''
+git_hash=$(git rev-parse --short HEAD)
+sed -i "s/^version = \"0.1.0\"/version = \"0.1.dev$git_hash\"/" Cargo.toml
+'''
