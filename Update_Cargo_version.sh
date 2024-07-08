@@ -39,8 +39,8 @@ echo "Cargo.toml after modification:"
 cat Cargo.toml
 
 # Optionally, update Cargo.lock (if needed)
-cargo update -p PlaygroundMR01 --precise "$VERSION"
+#cargo update -p PlaygroundMR01 --precise "$VERSION"
 
 # Print Cargo.lock after modification
-echo "Cargo.lock after modification:"
-cat Cargo.lock
+#echo "Cargo.lock after modification:"
+#cat Cargo.lock
