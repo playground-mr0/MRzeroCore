@@ -14,11 +14,20 @@ VERSION=$(git describe --tags --dirty --always --long --abbrev=7)
 
 echo "Current version: $VERSION"
 
+# Print Cargo.toml before modification
+echo "Cargo.toml before modification:"
+cat Cargo.toml
+
 # Update Cargo.toml with the new version
-#cargo edit --set-version "$VERSION"
 cargo set-version --version "$VERSION"
+
+# Print Cargo.toml after modification
+echo "Cargo.toml after modification:"
+cat Cargo.toml
 
 # Optionally, update Cargo.lock (if needed)
 cargo update -p PlaygroundMR01 --precise "$VERSION"
 
-# Any other commands related to your build process
+# Print Cargo.lock after modification
+echo "Cargo.lock after modification:"
+cat Cargo.lock
