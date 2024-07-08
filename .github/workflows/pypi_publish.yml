@@ -31,6 +31,10 @@ jobs:
           cargo install --force cargo-edit
           echo "::add-path::$HOME/.cargo/bin"
 
+      # Add cargo binaries to PATH
+      - name: Add cargo binaries to PATH
+        run: echo "$HOME/.cargo/bin" >> $GITHUB_PATH
+
       # Update Cargo.toml Version
       - name: Update Cargo.toml Version
         run: |
