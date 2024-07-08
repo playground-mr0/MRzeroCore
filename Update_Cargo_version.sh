@@ -16,10 +16,14 @@ export PATH="$HOME/.cargo/bin:$PATH"
 SHORT_HASH=$(git rev-parse --short HEAD)
 
 # Extract the current version from Cargo.toml
-CURRENT_VERSION=$(grep '^version =' Cargo.toml | sed 's/version = "//;s/"//')
+CURRENT_VERSION=$(grep '^version =' Cargo.toml | sed 's/version = "//;s/"$//')
 
-# Update the version format to major.minor.patch+git.commit_hash
-VERSION="${CURRENT_VERSION}+git.${SHORT_HASH}"
+# Separate version components
+MAJOR_MINOR_PATCH=$(echo $CURRENT_VERSION | cut -d '.' -f 1-3)
+PRE_RELEASE=$(echo $CURRENT_VERSION | cut -d '-' -f 2)
+
+# Format version in required format
+VERSION="${MAJOR_MINOR_PATCH}+git.${SHORT_HASH}"
 
 # Print the new version
 echo "Current version: $VERSION"
