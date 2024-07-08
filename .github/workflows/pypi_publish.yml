@@ -29,7 +29,6 @@ jobs:
       - name: Install cargo-edit
         run: |
           cargo install --force cargo-edit
-          echo "::add-path::$HOME/.cargo/bin"
 
       # Add cargo binaries to PATH
       - name: Add cargo binaries to PATH
