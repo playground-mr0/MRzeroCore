@@ -1,6 +1,6 @@
 [package]
 name = "PlaygroundMR01"
-version = "0.1.2-dev607052d+git.9f54fa7"
+version = "0.1.2+git.9f54fa7"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
