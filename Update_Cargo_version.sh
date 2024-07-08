@@ -21,8 +21,8 @@ CURRENT_VERSION=$(grep '^version =' Cargo.toml | sed 's/version = "//;s/"//')
 # Remove any existing pre-release or build metadata
 BASE_VERSION=$(echo $CURRENT_VERSION | sed 's/-.*//')
 
-# Construct the new version string with pre-release and build metadata
-VERSION="${BASE_VERSION}-dev.0+${SHORT_HASH}"
+# Construct the new version string with pre-release format including the commit hash
+VERSION="${BASE_VERSION}-dev.${SHORT_HASH}"
 
 # Print the version
 echo "Current version: $VERSION"
@@ -39,8 +39,4 @@ echo "Cargo.toml after modification:"
 cat Cargo.toml
 
 # Optionally, update Cargo.lock (if needed)
-cargo update -p PlaygroundMR01 --precise "$VERSION"
-
-# Print Cargo.lock after modification
-echo "Cargo.lock after modification:"
-cat Cargo.lock
+cargo update -p PlaygroundMR01 --precise "$VERSION
