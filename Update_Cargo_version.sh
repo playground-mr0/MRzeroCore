@@ -19,8 +19,8 @@ SHORT_HASH=$(git rev-parse --short HEAD)
 CURRENT_VERSION=$(grep '^version =' Cargo.toml | sed 's/version = "//;s/"$//')
 
 # Separate version components
-MAJOR_MINOR_PATCH=$(echo $CURRENT_VERSION | cut -d '.' -f 1-3)
-PRE_RELEASE=$(echo $CURRENT_VERSION | cut -d '-' -f 2)
+MAJOR_MINOR_PATCH=$(echo $CURRENT_VERSION | cut -d '+' -f 1-3)
+PRE_RELEASE=$(echo $CURRENT_VERSION | cut -d '.' -f 2)
 
 # Format version in required format
 VERSION="${MAJOR_MINOR_PATCH}+git.${SHORT_HASH}"
