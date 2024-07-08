@@ -38,7 +38,7 @@ jobs:
       - name: Update Cargo.toml Version
         run: |
           chmod +x Update_Cargo_version.sh
-          #./Update_Cargo_version.sh
+          ./Update_Cargo_version.sh
 
       #- name: Push changes
         #env:
