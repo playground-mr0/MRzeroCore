@@ -21,8 +21,7 @@ CURRENT_VERSION=$(grep '^version =' Cargo.toml | sed 's/version = "//;s/"$//')
 # Separate version components
 CURRENT_VERSION=$(echo "$CURRENT_VERSION" | cut -d'+' -f1)
 
-# Format version in required format
-VERSION="${CURRENT_VERSION}+git.${SHORT_HASH}"
+VERSION="${CURRENT_VERSION}-alpha.${SHORT_HASH}"
 
 # Print the new version
 echo "Current version: $VERSION"
