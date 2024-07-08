@@ -1,10 +1,13 @@
 #!/bin/bash
 
 # Check if cargo-edit is installed
-if ! command -v cargo-edit &> /dev/null; then
+if ! command -v cargo-set-version &> /dev/null; then
     echo "cargo-edit not found. Installing..."
     cargo install cargo-edit
 fi
+
+# Ensure the PATH includes Cargo bin directory
+export PATH="$HOME/.cargo/bin:$PATH"
 
 # Get current version including commit hash and dirty flag
 VERSION=$(git describe --tags --dirty --always --long --abbrev=7)
