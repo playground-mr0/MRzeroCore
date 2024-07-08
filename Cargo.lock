@@ -4,7 +4,7 @@ version = 3
 
 [[package]]
 name = "PlaygroundMR01"
-version = "0.1.2-dev8f7d35b"
+version = "0.1.2-dev31b09cf"
 dependencies = [
  "num-complex",
  "pyo3",
