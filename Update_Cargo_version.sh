@@ -9,6 +9,8 @@ fi
 # Get current version including commit hash and dirty flag
 VERSION=$(git describe --tags --dirty --always --long --abbrev=7)
 
+echo "Current version: $VERSION"
+
 # Update Cargo.toml with the new version
 cargo edit --set-version "$VERSION"
 
