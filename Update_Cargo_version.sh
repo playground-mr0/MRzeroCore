@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Exit immediately if a command exits with a non-zero status
+set -e
+
 # Check if cargo-edit is installed
 if ! command -v cargo-set-version &> /dev/null; then
     echo "cargo-edit not found. Installing..."
@@ -12,6 +15,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # Get current version including commit hash and dirty flag
 VERSION=$(git describe --tags --dirty --always --long --abbrev=7)
 
+# Print the version
 echo "Current version: $VERSION"
 
 # Print Cargo.toml before modification
@@ -19,7 +23,7 @@ echo "Cargo.toml before modification:"
 cat Cargo.toml
 
 # Update Cargo.toml with the new version
-cargo set-version --version "$VERSION"
+cargo set-version "$VERSION" || { echo "Failed to set version"; exit 1; }
 
 # Print Cargo.toml after modification
 echo "Cargo.toml after modification:"
