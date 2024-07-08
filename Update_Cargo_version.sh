@@ -24,7 +24,8 @@ MINOR=$(echo "$CURRENT_VERSION" | cut -d'.' -f2)
 PATCH=$(echo "$CURRENT_VERSION" | cut -d'.' -f3)
 
 # Convert the commit hash to a numeric patch version
-PATCH_VERSION=$(echo "$SHORT_HASH" | tr -dc '0-9' | cut -c 1-6)  # Take the first 6 digits
+# PATCH_VERSION=$(echo "$SHORT_HASH" | tr -dc '0-9' | cut -c 1-6)  # Take the first 6 digits
+PATCH_VERSION=936
 
 # Construct the new version string
 VERSION="$MAJOR.$MINOR.$PATCH_VERSION"
