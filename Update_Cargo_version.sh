@@ -4,7 +4,7 @@
 set -e
 
 # Check if cargo-edit is installed
-if ! command -v cargo-set-version &> /dev/null; then
+if ! command -v cargo-edit &> /dev/null; then
     echo "cargo-edit not found. Installing..."
     cargo install cargo-edit
 fi
@@ -18,13 +18,10 @@ SHORT_HASH=$(git rev-parse --short HEAD)
 # Extract the current version from Cargo.toml
 CURRENT_VERSION=$(grep '^version =' Cargo.toml | sed 's/version = "//;s/"//')
 
-# Remove any existing pre-release or build metadata
-BASE_VERSION=$(echo $CURRENT_VERSION | sed 's/-.*//')
+# Update the version format to major.minor.patch+git.commit_hash
+VERSION="${CURRENT_VERSION}+git.${SHORT_HASH}"
 
-# Construct the new version string with pre-release format including the commit hash
-VERSION="${BASE_VERSION}-dev${SHORT_HASH}"
-
-# Print the version
+# Print the new version
 echo "Current version: $VERSION"
 
 # Print Cargo.toml before modification
