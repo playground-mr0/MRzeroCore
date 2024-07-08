@@ -19,9 +19,15 @@ SHORT_HASH=$(git rev-parse --short HEAD)
 CURRENT_VERSION=$(grep '^version =' Cargo.toml | sed 's/version = "//;s/"$//')
 
 # Separate version components
-CURRENT_VERSION=$(echo "$CURRENT_VERSION" | cut -d'+' -f1)
+MAJOR=$(echo "$CURRENT_VERSION" | cut -d'.' -f1)
+MINOR=$(echo "$CURRENT_VERSION" | cut -d'.' -f2)
+PATCH=$(echo "$CURRENT_VERSION" | cut -d'.' -f3)
 
-VERSION="${CURRENT_VERSION}-alpha.${SHORT_HASH}"
+# Convert the commit hash to a numeric patch version
+PATCH_VERSION=$(echo "$SHORT_HASH" | tr -dc '0-9' | cut -c 1-6)  # Take the first 6 digits
+
+# Construct the new version string
+VERSION="$MAJOR.$MINOR.$PATCH_VERSION"
 
 # Print the new version
 echo "Current version: $VERSION"
