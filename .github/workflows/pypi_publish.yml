@@ -15,8 +15,8 @@ on:
   pull_request:
   workflow_dispatch:
 
-permissions:
-  contents: write-all
+permissions: write-all
+  #contents: write-all
 
 jobs:
   # Preliminary job to update Cargo files
