@@ -47,6 +47,7 @@ jobs:
           git commit -m "Automated commit"
           git push origin $GITHUB_REF
   linux:
+    needs: update-cargo
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -74,6 +75,7 @@ jobs:
           path: dist
 
   windows:
+    needs: update-cargo
     runs-on: windows-latest
     strategy:
       matrix:
@@ -97,6 +99,7 @@ jobs:
           path: dist
 
   macos:
+    needs: update-cargo
     runs-on: macos-latest
     strategy:
       matrix:
@@ -119,6 +122,7 @@ jobs:
           path: dist
 
   sdist:
+    needs: update-cargo
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
