@@ -15,7 +15,8 @@ VERSION=$(git describe --tags --dirty --always --long --abbrev=7)
 echo "Current version: $VERSION"
 
 # Update Cargo.toml with the new version
-cargo edit --set-version "$VERSION"
+#cargo edit --set-version "$VERSION"
+cargo set-version --version "$VERSION"
 
 # Optionally, update Cargo.lock (if needed)
 cargo update -p PlaygroundMR01 --precise "$VERSION"
