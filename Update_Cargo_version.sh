@@ -18,8 +18,10 @@ SHORT_HASH=$(git rev-parse --short HEAD)
 # Extract the current version from Cargo.toml
 CURRENT_VERSION=$(grep '^version =' Cargo.toml | sed 's/version = "//;s/"//')
 
-# Replace the pre-release tag with a specific pre-release format and include the commit hash as build metadata
+# Remove any existing pre-release or build metadata
 BASE_VERSION=$(echo $CURRENT_VERSION | sed 's/-.*//')
+
+# Construct the new version string with pre-release and build metadata
 VERSION="${BASE_VERSION}-dev.0+${SHORT_HASH}"
 
 # Print the version
