@@ -22,7 +22,7 @@ CURRENT_VERSION=$(grep '^version =' Cargo.toml | sed 's/version = "//;s/"//')
 BASE_VERSION=$(echo $CURRENT_VERSION | sed 's/-.*//')
 
 # Construct the new version string with pre-release format including the commit hash
-VERSION="${BASE_VERSION}-dev.${SHORT_HASH}"
+VERSION="${BASE_VERSION}-dev${SHORT_HASH}"
 
 # Print the version
 echo "Current version: $VERSION"
